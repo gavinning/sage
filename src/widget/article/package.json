@@ -1,0 +1,21 @@
+{
+    "name": "article",
+    "aimee": "app",
+    "version": "1.0.0",
+    "description": "Aimeejs的article模块",
+    "main": "article.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Aimeejs/article.git"
+    },
+    "keywords": [
+        "article"
+    ],
+    "author": "somebody",
+    "license": "GPL-3.0",
+    "bugs": {
+        "url": "https://github.com/Aimeejs/article/issues"
+    },
+    "homepage": "https://github.com/Aimeejs/article",
+    "dependencies": {}
+}

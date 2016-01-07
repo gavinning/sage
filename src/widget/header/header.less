@@ -1,0 +1,68 @@
+.lincoapp-header{
+    @headerHeight: 50px;
+    display: block;
+    height: @headerHeight;
+    border-bottom: 1px solid #e1e1e1;
+    box-shadow: 0 2px 5px rgba(200, 200, 200, 0.4);
+
+    .header{
+        height: @headerHeight;
+        overflow: hidden;
+        zoom: 1;
+        width: @globalWidth;
+        margin: 0 auto;
+
+        .logo{
+            width: 110px;
+            height: @headerHeight;
+            overflow: hidden;
+            float: left;
+
+            img{
+                height: 100%;
+            }
+        }
+    }
+
+    .main-nav{
+        height: @headerHeight;
+        font-family: '宋体';
+        font-size: 14px;
+        margin-left: 20px;
+        float: left;
+        overflow: hidden;
+        zoom: 1;
+
+        li{
+            float: left;
+            padding: 0 16px;
+            line-height: @headerHeight;
+            cursor: pointer;
+            background: -webkit-gradient(linear, left top, left bottom, from(@blue), to(@blue)) no-repeat;
+            background: -webkit-linear-gradient(top, @blue, @blue) no-repeat;
+            background: -moz-linear-gradient(top, @blue, @blue) no-repeat;
+            background-position: 0 -@headerHeight;
+            transition: background-position 100ms ease-out, color 100ms ease-out;
+
+            &:hover{
+                background-position: 0 -45px;
+            }
+
+            a{
+                display: block;
+            }
+        }
+
+        .current{
+            color: #fff;
+            background-position: 0 0 !important;
+            transition-duration: 200ms !important;
+        }
+
+        li.target{
+            color: #000;
+            background: none !important;
+            transition: none !important;
+        }
+    }
+}

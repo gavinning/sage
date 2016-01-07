@@ -1,0 +1,26 @@
+{
+  "name": "sage",
+  "version": "1.0.0",
+  "description": "",
+  "author": "",
+  "keywords": "",
+  "dependencies": {
+    "zepto": "~1.0.1",
+    "swipe": "~1.0.0",
+    "pm": "~1.0.1",
+    "autoscreen": "~2.0.0",
+    "aimee": "~1.0.4",
+    "class": "~1.0.0",
+    "config": "~1.2.0",
+    "loading": "~1.0.0",
+    "router": "~1.0.0",
+    "reset": "~1.0.3",
+    "app": "~1.0.7",
+    "guid": "~1.0.0",
+    "extend": "~1.0.0",
+    "mock": "~1.0.0",
+    "is": "~1.0.0",
+    "page": "~1.0.6",
+    "base": "~1.0.4"
+  }
+}

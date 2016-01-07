@@ -1,0 +1,21 @@
+{
+    "name": "list",
+    "aimee": "app",
+    "version": "1.0.0",
+    "description": "Aimeejs的list模块",
+    "main": "list.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Aimeejs/list.git"
+    },
+    "keywords": [
+        "list"
+    ],
+    "author": "somebody",
+    "license": "GPL-3.0",
+    "bugs": {
+        "url": "https://github.com/Aimeejs/list/issues"
+    },
+    "homepage": "https://github.com/Aimeejs/list",
+    "dependencies": {}
+}
