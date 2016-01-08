@@ -6,8 +6,9 @@
  * Date: 2016-01-07
  */
 
-var page, Page;
+var page, Page, query;
 
+query = require('query');
 Page = require('page');
 page = new Page;
 page.extend({
@@ -15,12 +16,26 @@ page.extend({
     template: require('./article.jade'),
 
     ajaxconfig: {
-        url: '/tmp/test.json',
-        dataType: 'json'
+        url: '/g/aimee/api/package',
+        dataType: 'json',
+        error: function(res){
+            aimee.app.tips.getApp().show();
+        }
+    },
+
+    onload: function(){
+        var _query = query.getQuery();
+
+        if(_query.name && _query.version){
+            this.ajaxconfig.url += '?' + query.setQuery({name: _query.name, version: _query.version})
+        }
     },
 
     prerender: function(data, thisPage){
-        this.exports('article')
+        this.exports('article', function(app){
+            app.init(data.data).render();
+            app.find('.readme').html(data.data.md);
+        })
     }
 });
 

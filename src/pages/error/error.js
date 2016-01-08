@@ -1,9 +1,9 @@
 /*!
- * home For Aimeejs
+ * error For Aimeejs
  * https://github.com/gavinning/aimee
  *
  * Aimee-page
- * Date: 2016-01-07
+ * Date: 2016-01-08
  */
 
 var page, Page;
@@ -11,17 +11,16 @@ var page, Page;
 Page = require('page');
 page = new Page;
 page.extend({
-    name: 'home',
-    template: require('./home.jade'),
+    name: 'error',
+    template: require('./error.jade'),
 
     ajaxconfig: {
-        url: '/g/aimee/api/getPackages',
+        url: '/tmp/test.json',
         dataType: 'json'
     },
 
     prerender: function(data, thisPage){
-        this.exports('search');
-        this.exports('list', data.data)
+        this.exports('header')
     }
 });
 

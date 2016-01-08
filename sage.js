@@ -1,6 +1,5 @@
 var fs = require('fs');
 var path = require('path');
-var pm = require('thenjs');
 var router = system.express.Router();
 var User = system.db.User;
 
@@ -8,3 +7,7 @@ var User = system.db.User;
 exports.name = 'sage';
 exports.router = router;
 exports.static = path.join(__dirname, 'static');
+
+router.get('/', function(req, res){
+    res.status(200).send('Hello ' + exports.name)
+})

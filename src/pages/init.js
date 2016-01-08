@@ -10,15 +10,17 @@ var aimee, router;
 
 aimee = require('aimee');
 router = require('router');
-aimee.config.set('env', 'mock');
+aimee.config.set('env', 'dev');
 
 aimee
     .reg('zepto')
     .reg('autoscreen')
     .reg('header')
+    .reg('tips')
 
 router
     .option('pages/home')
+    .option('pages/error')
     .option('pages/search')
-    .option('pages/article')
+    .option('pages/article', '/app')
     .action();

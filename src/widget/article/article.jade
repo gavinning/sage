@@ -1,4 +1,8 @@
 .lincoapp-article
     .article
-        .title aimee
-        .des for test. 处理流程控制
+        if(info.name)
+            .title #{info.name}
+            .des #{info.des}
+            .readme
+        else
+            .tips 404

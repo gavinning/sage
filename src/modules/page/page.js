@@ -39,7 +39,7 @@ Page.extend({
     // Mock or ajax
     ajax: function(fn){
         var options;
-        
+
         // 线上环境
         if(config.env === 'online' || config.env === 'dev' || config.env === 'test'){
             options = this.ajaxOptions(fn);
@@ -111,13 +111,19 @@ Page.fn.extend({
     },
 
     __enter: function(){
-        this.inited ? this.getPage().show() : this.init();
-        this.enter();
+        if(this.inited){
+            this.getPage().show();
+            this.enter();
+        }
+        else{
+            this.init();
+        }
     },
 
     // 渲染到页面
     render: function(id){
         var page = this;
+        page.onload();
         Page.ajax(function(data){
             // 缓存页面jQuery对象
             page._page = $(page.template(data));
@@ -126,7 +132,7 @@ Page.fn.extend({
             page._prerender(data, page._page)
 
             page.include(data, page);
-            
+
             // 页面渲染预处理
             page.prerender(data, page._page);
 
@@ -141,6 +147,9 @@ Page.fn.extend({
 
             // 页面渲染后处理
             page.postrender(data, page._page);
+
+            // Eenter
+            page.enter();
         });
     },
 
@@ -156,7 +165,7 @@ Page.fn.extend({
 
     // 页面实例离开方法
     leave: function(){
-        this.getPage().hide();
+        // this.getPage().hide();
     },
 
     include: function(){
@@ -170,6 +179,11 @@ Page.fn.extend({
 
     // 内部使用，不允许覆盖
     _postrender: function(data, thisPage){
+
+    },
+
+    // 页面加载时，请求数据之前
+    onload: function(){
 
     },
 
@@ -311,7 +325,7 @@ Page.fn.extend({
             fn = index;
             index = 0;
         }
-        
+
         if(fn){
             fn.call(this.app[id][index], this.app[id][index])
         }

@@ -1,17 +1,13 @@
 .lincoapp-list
+    if(config.search)
+        .count 共搜索到 #{list.length} 条数据
     .list
         ul
-            li
-                a.name(href="")
-                    strong promise
-                a.author(href="") gavinning
-                .des This is promise 处理流程控制
-                .bar
-                    i.version v1.0.0
-            li
-                a.name(href="")
-                    strong promise
-                a.author(href="") gavinning
-                .des This is promise 处理流程控制
-                .bar
-                    i.version v1.0.0
+            each app in list
+                li
+                    a.name(href="/static/sage/?name=#{app.name}&version=#{app.version}\#/app")
+                        strong #{app.name}
+                    a.author(href="/static/sage/?name=#{app.name}\#/user") #{app.author}
+                    .des #{app.des}
+                    .bar
+                        i.version #{app.version}
