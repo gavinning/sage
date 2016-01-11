@@ -34,6 +34,8 @@ page.extend({
     },
 
     prerender: function(data, thisPage){
+        this.exports('search');
+        
         this.exports('list', function(app){
             app.init(data.data).config({search: true}).render();
         })

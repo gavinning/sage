@@ -32,9 +32,11 @@ page.extend({
     },
 
     prerender: function(data, thisPage){
+        console.log(data)
+        this.exports('search info', data);
         this.exports('article', function(app){
             app.init(data.data).render();
-            app.find('.readme').html(data.data.md);
+            app.find('.readme').html(data.data.md === 'undefined' ? '' : data.data.md);
         })
     }
 });

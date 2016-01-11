@@ -21,7 +21,7 @@ page.extend({
 
     prerender: function(data, thisPage){
         this.exports('search');
-        this.exports('list', data.data)
+        this.exports('list-landscape', data.data)
     }
 });
 

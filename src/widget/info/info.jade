@@ -1,0 +1,15 @@
+.lincoapp-info
+    .info
+        .title.code-font
+            span.gray Install: 
+            | aimee i #{data.info.name}
+
+        .list
+            .item #{data.info.name} by #{data.INFO.author}
+            if(data.INFO)
+                .item #{data.info.version} is the latest of #{data.INFO.versions.length} releases
+            else
+                .item #{data.info.version} is the latest releases
+            if(data.info.repository)
+                .item
+                    a(href="#{data.info.repository.url}") #{data.info.repository.url}
