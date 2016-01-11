@@ -14,7 +14,6 @@
 
         .logo{
             display: block;
-            width: 110px;
             height: @headerHeight;
             overflow: hidden;
             float: left;
@@ -36,7 +35,6 @@
 
         li{
             float: left;
-            padding: 0 16px;
             line-height: @headerHeight;
             cursor: pointer;
             background: -webkit-gradient(linear, left top, left bottom, from(@blue), to(@blue)) no-repeat;
@@ -51,13 +49,22 @@
 
             a{
                 display: block;
+                padding: 0 16px;
+                color: @text;
+
+                &:hover{
+                    text-decoration: none;
+                }
             }
         }
 
         .current{
-            color: #fff;
             background-position: 0 0 !important;
             transition-duration: 200ms !important;
+
+            a{
+                color: #fff;
+            }
         }
 
         li.target{

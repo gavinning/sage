@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  include ../src/widget/header/header.jade
+  .lonemd
+      .readme
+      .readme.dn #{md}
+  script.
+      document.getElementById('quickstart').className = 'current';
+      document.querySelector('.readme').innerHTML = document.querySelector('.readme.dn').innerText;
