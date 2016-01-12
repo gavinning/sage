@@ -35,6 +35,7 @@ page.extend({
         console.log(data)
         this.exports('search info', data);
         this.exports('article', function(app){
+            // Render to page
             app.init(data.data).render();
             app.find('.readme').html(data.data.md === 'undefined' ? '' : data.data.md);
         })
