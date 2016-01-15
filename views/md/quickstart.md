@@ -7,9 +7,19 @@
 * [Install Aimee-cli](https://www.npmjs.com/package/aimee-cli)
 
 ### Create demo
+```bash
+$ aimee create pro
+$ cd pro
+$ uz release -p
+$ uz server start
 ```
-$: aimee create pro
-$: cd pro
-$: uz release -p
-$: uz server start
+
+### Create page
+```bash
+$ aimee create -p home
+```
+
+### Create widget app
+```bash
+$ aimee create -w header
 ```

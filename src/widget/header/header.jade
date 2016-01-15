@@ -3,5 +3,6 @@
         a.logo(href="/static/sage/#/home")
             img(src="/static/sage/images/logo.png", alt="")
         nav.main-nav
-            li#quickstart(target="/home")
-                a(href="/g/sage/quickstart") 快速开始
+            each item in nav
+                li(id= item.id class= (item.selected ? 'current': ''))
+                    a(href= item.link.url)= item.link.val

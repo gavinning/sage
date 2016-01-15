@@ -1,9 +1,10 @@
 @import url(http://fonts.googleapis.com/css?family=PT+Sans);
 
-.readme {
+.lincoapp-markdown, .readme {
   margin: 0px;
   font-family: 'PT Sans', Helvetica, 'Helvetica Neuve', Arial, Tahoma, sans-serif;
-  font-size: 17px;
+  font-family: 'PT Sans', "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 14px;
   color: #333;
 
   .shadow{
@@ -45,6 +46,8 @@
     color:#39c;
     font-weight:400;
     text-decoration:none;
+    font-size: 16px;
+    line-height: 1.5;
   }
 
   a small {
@@ -68,15 +71,24 @@
 
   code, pre {
     color:#333;
-    font-size:12px;
+    font: 14px/1.45 Consolas, "Liberation Mono", Menlo, Courier, monospace, '微软雅黑';
   }
 
   pre {
     padding:8px 15px;
-    background: #f8f8f8;
-    border-radius:5px;
-    border:1px solid #e5e5e5;
+    background: #f6f6f6;
+    border-radius: 2px;
     overflow-x: auto;
+
+    code{
+        padding: 0;
+    }
+  }
+
+  code{
+      padding: 3px 6px;
+      background: #f6f6f6;
+      border-radius: 2px;
   }
 
   table {

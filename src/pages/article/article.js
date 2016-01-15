@@ -39,6 +39,13 @@ page.extend({
             app.init(data.data).render();
             app.find('.readme').html(data.data.md === 'undefined' ? '' : data.data.md);
         })
+    },
+
+    postrender: function(){
+        // 执行代码高亮
+        $('pre code').each(function(i, block) {
+            hljs.highlightBlock(block);
+        });
     }
 });
 
