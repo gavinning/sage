@@ -1,37 +1,53 @@
 // Improve by gavinning
 
-.display-box() {
+.display-box(...) {
     display: -webkit-box;
+    display: -moz-box;
     display: box;
 }
 
-.box() {
-    display: -webkit-box;
+.box(...) {
+    .display-box();
 }
 
 .box-flex( @num: 1 ){
     -webkit-box-flex: @num;
+       -moz-box-flex: @num;
+            box-flex: @num;
 }
 
 .box-pack( @args: center ){
     -webkit-box-pack: @args;
+       -moz-box-pack: @args;
+            box-pack: @args;
 }
 
 .box-align( @args: center ){
     -webkit-box-align: @args;
+       -moz-box-align: @args;
+            box-align: @args;
 }
 
 .box-orient( @args: vertical ){
     -webkit-box-orient: @args;
+       -moz-box-orient: @args;
+            box-orient: @args;
 }
 
 .box-center(...) {
-    -webkit-box-pack: center;
-    -webkit-box-align: center;
+    .box-pack();
+    .box-align();
+}
+
+.line-clamp(...){
+    -webkit-line-clamp: @num;
+       -moz-line-clamp: @num;
+            line-clamp: @num;
 }
 
 .background-size(...) {
     -webkit-background-size: @arguments; /* Saf3-4 */
+       -moz-background-size: @arguments;
             background-size: @arguments; /* Opera, IE9, Saf5.1, Chrome13.0, FF4.0 */
 }
 
@@ -40,56 +56,50 @@
     .background-size( @size );
 }
 
-.bgimg( @url, @repeat: no-repeat, @size: auto ){
-    background: url( '@{path}/@{url}' ) @repeat;
-    .background-size( @size );
-}
-
-.mask( @url, @repeat: no-repeat, @size: auto, @color ){
-    background: @color;
-    -webkit-mask: url( '@{path}/@{url}' ) @repeat;
-    -webkit-mask-size: @size;
-}
-
-.bgl( @c1, @c2 ){
-    background: -webkit-gradient(linear,left top,left bottom,from(@c1),to(@c2));
+.bgl( @c1, @c2, @direction: top ){
+    background: -webkit-linear-gradient(@direction, @c1, @c2);
+    background: -moz-linear-gradient(@direction, @c1, @c2);
+    background: linear-gradient(@direction, @c1, @c2);
 }
 
 .radius(...) {
-      -webkit-border-radius: @arguments; /* Saf3-4, iOS 1-3.2, Android ≤1.6 */
-              border-radius: @arguments; /* Opera 10.5 IE9, Saf5, Chrome, FF4, iOS 4, Android 2.1+ */
-
-    /* useful if you don't want a bg color from leaking outside the border: */
-/*    -webkit-background-clip: padding-box;
-            background-clip: padding-box;*/
+    -webkit-border-radius: @arguments; /* Saf3-4, iOS 1-3.2, Android ≤1.6 */
+       -moz-border-radius: @arguments;
+            border-radius: @arguments; /* Opera 10.5 IE9, Saf5, Chrome, FF4, iOS 4, Android 2.1+ */
 }
 
 .box-shadow(...) {
     -webkit-box-shadow: @arguments; /* Saf3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+       -moz-box-shadow: @arguments;
             box-shadow: @arguments; /* Opera 10.5, IE9, FF4+, Chrome 6+, iOS 5 */
 }
 
 .shadow(...) {
     -webkit-box-shadow: @arguments; /* Saf3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+       -moz-box-shadow: @arguments;
             box-shadow: @arguments; /* Opera 10.5, IE9, FF4+, Chrome 6+, iOS 5 */
 }
 
 .text-shadow(...) {
-    -webkit-text-shadow: @arguments;
-            text-shadow: @arguments;
+    .shadow();
 }
 
 .box-sizing( @args: border-box ){
     -webkit-box-sizing: @args;
+       -moz-box-sizing: @args;
             box-sizing: @args;
 }
 
 .transform(...) {
     -webkit-transform: @arguments; /* Saf3.2+, Chrome */
+       -moz-transform: @arguments;
+            transform: @arguments; /* Saf3.2+, Chrome */
 }
 
 .transition(...) {
     -webkit-transition: @arguments;
+       -moz-transition: @arguments;
+            transition: @arguments;
 }
 
 .clamp1(...){
@@ -99,9 +109,9 @@
 }
 
 .clamp(@num){
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: @num;
+    .box();
+    .box-orient();
+    .line-clamp(@num);
     word-break: break-all;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -109,6 +119,8 @@
 
 .tap-color(@alpha: 0){
     -webkit-tap-highlight-color: rgba(0,0,0,@alpha);
+       -moz-tap-highlight-color: rgba(0,0,0,@alpha);
+            tap-highlight-color: rgba(0,0,0,@alpha);
 }
 
 .bgss(@size: cover, @position: center, @repeat: no-repeat){
@@ -141,4 +153,6 @@
 .autoscroll(){
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
+       -moz-overflow-scrolling: touch;
+            overflow-scrolling: touch;
 }
